@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Management System</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./employe.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Employee Management System</h1>
+      <div id="dateTime"></div>
+    </header>
+    <div class="search">
+      <input type="text" id="search" placeholder="Search employee" />
+      <button onclick="searchEmployee()">Search</button>
+    </div>
+    <div class="buttons">
+      <button onclick="filterDepartment('ALL')">All Employees</button>
+      <button onclick="filterDepartment('Support')">IT</button>
+      <button onclick="filterDepartment('Human Resources')">HR</button>
+      <button onclick="filterDepartment('Accounting')">Finance</button>
+      <button onclick="filterDepartment('Marketing')">Marketing</button>
+    </div>  
+
+    <div id="message">Loading employees...</div>
+    <div class="sort">
+      <label for="sortSelect">Sort By:</label>
+
+      <select id="sortSelect" onchange="sortEmployees(this.value)">
+        <option value="">Select</option>
+
+        <option value="nameAsc">Name ↑</option>
+        <option value="nameDesc">Name ↓</option>
+
+        <option value="ageAsc">Age ↑</option>
+        <option value="ageDesc">Age ↓</option>
+
+        <option value="salaryAsc">Salary ↑</option>
+        <option value="salaryDesc">Salary ↓</option>
+      </select>
+    </div>
+
+    <div class="salary-dashboard">
+      <h2>Salary Dashboard</h2>
+
+      <h3>
+        Total Employees:
+        <span id="count">0</span>
+      </h3>
+
+      <h3>
+        Total Salary:
+        <span id="totalSalary">₹0</span>
+      </h3>
+
+      <h3>
+        Average Salary:
+        <span id="averageSalary">₹0</span>
+      </h3>
+    </div>
+
+    <div class="highest-salary">
+      <h2>🏆 Highest Paid Employee</h2>
+
+      <p id="highestEmployee">No employee added</p>
+    </div>
+
+
+<div id="employees"></div>
+    
+
+    <div class="form">
+      <h2>Add Employee</h2>
+      <input type="text" id="name" placeholder="Name" />
+      <input type="number" id="age" placeholder="Age" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="number" id="number" placeholder="Phone Number" />
+      <select id="department">
+        <option value="">Select Department</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+        <option value="Marketing">Marketing</option>
+      </select>
+
+      <input type="number" id="salary" placeholder="Salary" />
+      <button onclick="addEmployee()">Add Employee</button>
+    </div>
+  </body>
+</html>
